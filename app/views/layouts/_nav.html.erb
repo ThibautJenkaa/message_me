@@ -1,0 +1,24 @@
+<div class="ui large inverted menu">
+    <%= link_to "Chat", root_path, class: "item" %>
+    <a class="item">
+    Messages
+    </a>
+    <div class="right menu">
+    <div class="ui dropdown item">
+        <i class="users icon"></i>
+        <div class="menu">
+        <% if logged_in? %>
+            <%= link_to "Se déconnecter", logout_path, method: :delete, class: "item" %>
+        <% else %>
+            <%= link_to "Se connecter", login_path, class: "item" %>
+            <a class="item">S'inscrire</a>
+        <% end %>
+        </div>
+    </div>
+    <% if !logged_in? %>
+    <div class="item">
+        <%= link_to "Se connecter", login_path, class: "ui primary button" %>
+    </div>
+    <% end %>
+    </div>
+</div>
